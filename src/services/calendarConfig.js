@@ -31,7 +31,7 @@ angular
     },
     dateFormatter: 'moment',
     showTimesOnWeekView: false,
-    displayAllMonthEvents: false,
+    displayAllMonthEvents: true,
     i18nStrings: {
       weekNumber: 'Semana {week}'
     },

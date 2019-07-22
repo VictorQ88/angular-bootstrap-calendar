@@ -1,9 +1,59 @@
+<script id="customMonthCell.html" type="text/ng-template">
+  <div class="cal-month-day {{day.cssClass}}" ng-class="{
+    'cal-day-outmonth': !day.inMonth,
+    'cal-day-inmonth': day.inMonth,
+    'cal-day-weekend': day.isWeekend,
+    'cal-day-past': day.isPast,
+    'cal-day-today': day.isToday,
+    'cal-day-future': day.isFuture,
+    'cal-day-selected': vm.dateRangeSelect &amp;&amp; vm.dateRangeSelect.startDate <= day.date &amp;&amp; day.date <= vm.dateRangeSelect.endDate,
+    'cal-day-open': dayIndex === vm.openDayIndex
+  }">
+
+    <span
+      class="pull-right"
+      data-cal-date
+      ng-bind="day.label">
+    </span>
+    <div class="events-list" ng-show="day.events.length > 0" style="">
+      <a ng-repeat="event in day.events | orderBy:'startsAt' track by event.calendarEventId" 
+      href="javascript:;" 
+      ng-click="$event.stopPropagation(); vm.onEventClick({calendarEvent: event})" 
+      class="pull-left event" 
+      ng-class="event.cssClass" 
+      ng-style="{color: event.color.primary}" 
+      ng-mousedown="$event.stopPropagation()" 
+      ng-mouseenter="vm.highlightEvent(event, true)" 
+      ng-mouseleave="vm.highlightEvent(event, false)" 
+      tooltip-append-to-body="true" 
+      uib-tooltip-html="vm.calendarEventTitle.monthViewTooltip(event) | calendarTrustAsHtml" 
+      mwl-draggable="event.draggable === true" 
+      drop-data="{event: event, draggedFromDate: day.date.toDate()}" 
+      auto-scroll="vm.draggableAutoScroll" 
+      style="background-color: transparent;">
+      </a> 
+    </div>
+    
+  </div>
+</script>
+
 <div ng-controller="ClickableEventsCtrl as vm">
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-9 calendar">
       <h1 class="text-center title">{{ vm.viewTitle }}</h1>
-      <ng-include src="'calendarControls.html'"></ng-include>
+      <div class="text-center">
+        <div class="btn-group">
+          <label class="btn btn-primary" mwl-date-modifier decrement="vm.calendarView" date="vm.viewDate">Anterior</label>
+          <label class="btn btn-default" mwl-date-modifier date="vm.viewDate" set-to-today>Hoy</label>
+          <label class="btn btn-primary" mwl-date-modifier increment="vm.calendarView" date="vm.viewDate">Siguiente</label>
+        </div>
+      </div>
+      <br>
+      
+
+      <!-- <ng-include src="'calendarControls.html'"></ng-include> -->
+      
       <mwl-calendar
         events="vm.events"
         view="vm.calendarView"
@@ -11,11 +61,12 @@
         cell-auto-open-disabled="true"
         view-title="vm.viewTitle"
         cell-modifier="vm.cellModifier(calendarCell)"
+        custom-template-urls="{calendarMonthCell: 'customMonthCell.html'}"
         on-event-click="vm.eventClicked(calendarEvent)">
       </mwl-calendar>
       <br/>
       <div ng-repeat="type in types">
-        <i class="{{ type.cssClass }}"> {{ type.type }}</i>
+        <i class="{{ type.cssClass }}" style="color: {{ type.color.primary}}"> {{ type.type }}</i>
       </div>
     </div>
   </div>
