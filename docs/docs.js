@@ -61,14 +61,14 @@ angular
 
     $http.get('docs/examples/examples.json').then(function(result) {
       vm.examples = result.data;
-      if ($location.search().example) {
+      // if ($location.search().example) {
         var exampleToLoad = vm.examples.filter(function(example) {
-          return example.key === $location.search().example;
+          return example.key === 'clickable-events';//$location.search().example;
         })[0];
         vm.loadExample(exampleToLoad);
-      } else {
-        vm.loadExample(vm.examples[0]);
-      }
+      // } else {
+      //   vm.loadExample(vm.examples[0]);
+      // }
     });
 
   })
@@ -91,6 +91,7 @@ angular
         .addNpmPackage('rrule', {version: 2})
         .addNpmPackage('angular-bootstrap-colorpicker', {version: 3})
         .addNpmPackage('angular-bootstrap-calendar')
+        .addNpmPackage('underscore')
         .addNpmPackage('bootstrap', {filename: 'dist/css/bootstrap.css', version: bsVersion})
         .addNpmPackage('angular-bootstrap-colorpicker', {version: 3, filename: 'css/colorpicker.min.css'})
         .addNpmPackage('angular-bootstrap-calendar', {filename: 'dist/css/angular-bootstrap-calendar.min.css'})

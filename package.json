@@ -87,5 +87,10 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@types/underscore": "^1.9.2",
+    "angular-filter": "^0.5.17",
+    "underscore": "^1.9.1"
   }
 }

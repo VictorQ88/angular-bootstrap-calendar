@@ -6,22 +6,6 @@ angular
   .module('mwl.calendar')
   .constant('calendarConfig', {
     allDateFormats: {
-      angular: {
-        date: {
-          hour: 'ha',
-          day: 'd MMM',
-          month: 'MMMM',
-          weekDay: 'EEEE',
-          time: 'HH:mm',
-          datetime: 'MMM d, h:mm a'
-        },
-        title: {
-          day: 'EEEE d MMMM, yyyy',
-          week: 'Week {week} of {year}',
-          month: 'MMMM yyyy',
-          year: 'yyyy'
-        }
-      },
       moment: {
         date: {
           hour: 'ha',
@@ -33,8 +17,8 @@ angular
         },
         title: {
           day: 'dddd D MMMM, YYYY',
-          week: 'Week {week} of {year}',
-          month: 'MMMM YYYY',
+          week: 'Semana {week} de {year}',
+          month: 'MMMM, YYYY',
           year: 'YYYY'
         }
       }
@@ -45,11 +29,11 @@ angular
     get titleFormats() {
       return this.allDateFormats[this.dateFormatter].title;
     },
-    dateFormatter: 'angular',
+    dateFormatter: 'moment',
     showTimesOnWeekView: false,
     displayAllMonthEvents: false,
     i18nStrings: {
-      weekNumber: 'Week {week}'
+      weekNumber: 'Semana {week}'
     },
     templates: {},
     colorTypes: {

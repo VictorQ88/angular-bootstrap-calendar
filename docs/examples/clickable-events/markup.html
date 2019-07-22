@@ -1,11 +1,23 @@
 <div ng-controller="ClickableEventsCtrl as vm">
-  <ng-include src="'calendarControls.html'"></ng-include>
-  <mwl-calendar
-    events="vm.events"
-    view="vm.calendarView"
-    view-date="vm.viewDate"
-    cell-is-open="vm.cellIsOpen"
-    cell-auto-open-disabled="true"
-    on-event-click="vm.eventClicked(calendarEvent);">
-  </mwl-calendar>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9 calendar">
+      <h1 class="text-center title">{{ vm.viewTitle }}</h1>
+      <ng-include src="'calendarControls.html'"></ng-include>
+      <mwl-calendar
+        events="vm.events"
+        view="vm.calendarView"
+        view-date="vm.viewDate"
+        cell-auto-open-disabled="true"
+        view-title="vm.viewTitle"
+        cell-modifier="vm.cellModifier(calendarCell)"
+        on-event-click="vm.eventClicked(calendarEvent)">
+      </mwl-calendar>
+      <br/>
+      <div ng-repeat="type in types">
+        <i class="{{ type.cssClass }}"> {{ type.type }}</i>
+      </div>
+    </div>
+  </div>
+  <br/>
 </div>
