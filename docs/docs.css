@@ -1,4 +1,7 @@
 /* Everything but the jumbotron gets side spacing for mobile first views */
+body {
+  font-size: 12px;
+}
 .header,
 .marketing,
 .footer {
@@ -97,38 +100,28 @@ mwl-calendar .event {
   border: none !important;
   background: none !important;
   border-radius: none !important;
-
   margin-bottom: 4px !important;
   text-decoration: none;
-
-  width: 15px;
-    height: 15px;
-
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
 }
 
 .fa.pull-left {
-  margin-right: 4px !important;
+  margin-right: 8px !important;
+  margin-bottom: 8px !important;
 }
 
 mwl-calendar .cal-month-box .cal-row-fluid {
-  border-right: none !important; 
-  border-left: none !important; 
+  border-right: none !important;
+  border-left: none !important;
 }
 
-
-/* .event * .red{
-  color: red !important;
-  background-color: red !important;
-} */
-
-.calendar{
-      /* -webkit-box-shadow: 0 3px 7px rgba(0,0,0,.6), 0 -3px 7px rgba(0,0,0,.2);
-      -moz-box-shadow: 0 3px 7px rgba(0,0,0,.6),0 -3px 7px rgba(0,0,0,.2);
-      box-shadow: 0 3px 7px rgba(0,0,0,.6), 0 -3px 7px rgba(0,0,0,.2); */
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-      border: solid 1px#e5e5e5;
-    border-radius: 9px;
-    padding-bottom: 15px;
+.calendar {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  border: solid 1px#e5e5e5;
+  border-radius: 9px;
+  padding-bottom: 15px;
 }
 
 mwl-calendar span[data-cal-date] {
@@ -140,12 +133,12 @@ mwl-calendar .cal-month-box .cal-day-today span[data-cal-date] {
   font-weight: bolder;
 }
 
-mwl-calendar .cal-month-box .cal-row-head{
+mwl-calendar .cal-month-box .cal-row-head {
   text-transform: capitalize;
 }
 
-  mwl-calendar .cal-day-outmonth span[data-cal-date] {
-  opacity: 0.3 !important;
+mwl-calendar span[data-cal-date] {
+  opacity: 0.8 !important;
 }
 
 .calendar .title {
@@ -154,14 +147,38 @@ mwl-calendar .cal-month-box .cal-row-head{
   padding-top: 20px;
 }
 
-/* mwl-calendar .cal-year-box .row{ */
 mwl-calendar .cal-month-box .cal-row-fluid {
   border-top: 1px solid #e1e1e1 !important;
   border-bottom: none !important;
 }
 
 .cal-day-weekend {
-  color: rgba(#98a0a6, 0.6);
-  background-color: #ffffff;
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: linear-gradient(
+    45deg,
+    #ffffff 25%,
+    #ecf4f8 25%,
+    #ecf4f8 50%,
+    #ffffff 50%,
+    #ffffff 75%,
+    #ecf4f8 75%,
+    #ecf4f8 100%
+  );
+  background-size: 42.43px 42.43px;
+  opacity: 0.5;
+}
+
+mwl-calendar .cal-day-today {
+  background-color: #dae9f1 !important;
+}
+
+mwl-calendar .cal-day-today span[data-cal-date] {
+  color: #438eb9 !important;
+}
+
+mwl-calendar .events-list {
+  max-height: none !important;
+}
+
+.clickeable {
+  cursor: pointer;
 }

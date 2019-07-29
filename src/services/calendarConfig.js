@@ -31,35 +31,33 @@ angular
     },
     dateFormatter: 'moment',
     showTimesOnWeekView: false,
-    displayAllMonthEvents: true,
-    i18nStrings: {
-      weekNumber: 'Semana {week}'
-    },
+    displayAllMonthEvents: false,
     templates: {},
     colorTypes: {
-      info: {
-        primary: '#1e90ff',
-        secondary: '#d1e8ff'
+      task: {
+        primary: '#69aa46',
+        secondary: '#dbffc7',
+        icon: 'fa fa-file-text'
       },
-      important: {
-        primary: '#ad2121',
-        secondary: '#fae3e3'
+      activity: {
+        primary: '#478fca',
+        secondary: '#d6edff',
+        icon: 'fa fa-book'
       },
-      warning: {
-        primary: '#e3bc08',
-        secondary: '#fdf1ba'
+      exam: {
+        primary: '#ffb752',
+        secondary: '#fffad6',
+        icon: 'fa fa-calculator'
       },
-      inverse: {
-        primary: '#1b1b1b',
-        secondary: '#c1c1c1'
-      },
-      special: {
+      event: {
         primary: '#800080',
-        secondary: '#ffe6ff'
+        secondary: '#ffe0ff',
+        icon: 'fa fa-newspaper-o'
       },
-      success: {
-        primary: '#006400',
-        secondary: '#caffca'
+      attendance_late: {
+        primary: '#d15b47',
+        secondary: '#ffd6cf',
+        icon: 'icon-minus-sign'
       }
     }
   });
